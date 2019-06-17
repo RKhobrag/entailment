@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="../static/static.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	 <script> 
+	    $(function(){
+	      $("#homeContent").load("homeContent.html"); 
+	    });
+    </script> 
+	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+</head>
+
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand" href="#">CFILT Lab</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	      </li>
+	    </ul>	    
+	  </div>
+	</nav>
+
+	<ul class="nav nav-tabs" id="myTab" role="tablist">
+	  <li class="nav-item">
+	    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" id="basic-tab" data-toggle="tab" href="#basic" role="tab" aria-controls="basic" aria-selected="false">Basic</a>
+	  </li>
+	  <li class="nav-item">
+	    <a class="nav-link" id="advanced-tab" data-toggle="tab" href="#advanced" role="tab" aria-controls="advanced" aria-selected="false">Advanced</a>
+	  </li>
+	</ul>
+	<div class="tab-content" id="myTabContent">
+	  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+	  	<div id="homeContent"></div>
+	  </div>
+	  <div class="tab-pane fade" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+	  	<div class="card">
+		 	<div class="card-body">
+		 		<h2>Entailment Models</h2>
+				<!-- <form action="{{ url_for('predict')}}" method="POST">				 -->
+				<form id='form' class="form col-6">			
+				<!-- <input type="text" name="comment"/> -->
+					<p>Enter a pair of sentences in the textboxes below and click on Predict to find entailment relationship between them</p>
+					<br>
+					<!-- <label class="sr-only" for="model">Select Model</label> -->
+					<select class="custom-select col-3 mb-3">
+					  <option selected>Select Model</option>
+					  <option value="1">BERT</option>
+					  <option value="2">KIM</option>				  
+					</select>
+
+					<label class="sr-only" for="premise">Premise</label>
+					<textarea id="premise" class="col-9 text" name="premise" rows="4" cols="50" title="Premise" placeholder="Enter Premise"></textarea>
+					<label class="sr-only" for="hypothesis">Hypothesis</label>
+					<textarea id="hypothesis" class="col-9" name="hypothesis" rows="4" cols="50"
+					placeholder="Enter hypothesis"></textarea>
+					<br/>
+
+					<input type="submit" class="btn-info" value="predict">
+				
+					<div>
+					<label>Forward Entailment Score: </label>
+					<div id='fwd'></div>
+
+					<label>Backward Entailment Score: </label>
+					<div id='fwd'></div>
+					</div>
+				</form>
+				
+			</div>
+	  </div>
+	  <div class="tab-pane fade" id="advanced" role="tabpanel" aria-labelledby="advanced-tab">...</div>
+	</div>	
+
+	
+		
+	</div>
+
+	
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>	
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="static/home.js"></script>
+
+
+</body>
+</html>
